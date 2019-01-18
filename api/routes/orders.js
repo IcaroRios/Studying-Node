@@ -8,8 +8,22 @@ router.get('/',(req, res,  next)=>{
 })
 
 router.post('/',(req, res,  next)=>{
-    res.status(200).json({
+    res.status(201).json({
         message:'order was created'
+    })
+})
+
+router.get('/:orderId',(req, res,  next)=>{
+    res.status(200).json({
+        message:'Order details',
+        orderId: req.params.orderId
+    })
+})
+
+router.delete('/:orderId',(req, res,  next)=>{
+    res.status(200).json({
+        message:'Order deleted',
+        orderId: req.params.orderId
     })
 })
 

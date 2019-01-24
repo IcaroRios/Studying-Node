@@ -1,10 +1,19 @@
 const express = require('express')
 const app = express()
 const morgan = require('morgan')
+const mongoose = require('mongoose') 
+
 
 const bodyParser = require('body-parser')
 const productRoutes = require('./api/routes/products')
 const orderRoutes = require('./api/routes/orders')
+
+mongoose.connect(
+    'mongodb+srv://node-shop:' + 
+    process.env.MONGO_ATLAS_PW  
+    + '@node-rest-shop-3jy8x.mongodb.net/test?retryWrites=true',
+    { useNewUrlParser: true }
+)
 
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({extended: false}))

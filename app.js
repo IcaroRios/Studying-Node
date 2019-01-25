@@ -14,6 +14,7 @@ mongoose.connect(
     + '@node-rest-shop-3jy8x.mongodb.net/test?retryWrites=true',
     { useNewUrlParser: true }
 )
+mongoose.Promise = global.Promise;
 
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({extended: false}))
